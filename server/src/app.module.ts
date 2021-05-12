@@ -1,3 +1,4 @@
+import { ApodModule } from './apod/apod.module';
 import { RoverPhotosModule } from './rover-photos/rover-photos.module';
 import { PerservanceWeatherModule } from './perservance-weather/perservance-weather.module';
 import { Module } from '@nestjs/common';
@@ -14,6 +15,7 @@ import { AppService } from './app.service';
     ScheduleModule.forRoot(),
     PerservanceWeatherModule,
     RoverPhotosModule,
+    ApodModule,
   ],
   controllers: [AppController],
   providers: [AppService],
