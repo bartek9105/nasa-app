@@ -7,7 +7,7 @@ export class RoverPhotosController {
   constructor(private readonly roverPhotosService: RoverPhotosService) {}
 
   @Get()
-  async fetchRoversPhotos(@Query() queries: RoverPhotosQueries): Promise<any> {
+  async getRoversPhotos(@Query() queries: RoverPhotosQueries) {
     return await this.roverPhotosService.getRoversPhotos(queries);
   }
 }

@@ -4,6 +4,7 @@ import { Injectable, HttpService, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Cron } from '@nestjs/schedule';
+import { RoverPhotosResponse } from './interfaces/rover-photos-response.interface';
 
 @Injectable()
 export class RoverPhotosService {
@@ -47,7 +48,7 @@ export class RoverPhotosService {
   async getRoversPhotos({
     camera,
     rover,
-  }: RoverPhotosQueries): Promise<RoverPhotos[]> {
+  }: RoverPhotosQueries): Promise<RoverPhotosResponse> {
     const query = [
       {
         $unwind: '$photos',
