@@ -1,12 +1,13 @@
 import { RoverPhotosService } from './rover-photos.service';
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
+import { RoverPhotosQueries } from './interfaces/rover-photos-queries.interface';
 
 @Controller('rover-photos')
 export class RoverPhotosController {
   constructor(private readonly roverPhotosService: RoverPhotosService) {}
 
   @Get()
-  async fetchRoverPhotos(): Promise<any> {
-    return await this.roverPhotosService.fetchRoversPhotos();
+  async fetchRoversPhotos(@Query() queries: RoverPhotosQueries): Promise<any> {
+    return await this.roverPhotosService.getRoversPhotos(queries);
   }
 }

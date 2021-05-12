@@ -1,4 +1,4 @@
-import { RoverPhotos } from './rover-photos.interface';
+import { RoverPhotos } from './interfaces/rover-photos.interface';
 import * as mongoose from 'mongoose';
 
 export const RoverPhotosSchema = new mongoose.Schema<RoverPhotos>({

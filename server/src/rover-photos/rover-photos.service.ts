@@ -1,4 +1,5 @@
-import { RoverPhotos } from './rover-photos.interface';
+import { RoverPhotosQueries } from './interfaces/rover-photos-queries.interface';
+import { RoverPhotos } from './interfaces/rover-photos.interface';
 import { Injectable, HttpService, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -41,5 +42,26 @@ export class RoverPhotosService {
   async saveRoversPhotos(roverPhotosDto: RoverPhotos): Promise<RoverPhotos> {
     const roversPhotos = new this.roverPhotosModel(roverPhotosDto);
     return await roversPhotos.save();
+  }
+
+  async getRoversPhotos({
+    camera,
+    rover,
+  }: RoverPhotosQueries): Promise<RoverPhotos[]> {
+    const query = [
+      {
+        $unwind: '$photos',
+      },
+      {
+        $match: {
+          'photos.camera.name': camera ? camera : { $exists: true },
+          'photos.rover.name': rover ? rover : { $exists: true },
+        },
+      },
+      {
+        $group: { _id: '$_id', photos: { $push: '$photos' } },
+      },
+    ];
+    return this.roverPhotosModel.aggregate(query).exec();
   }
 }
