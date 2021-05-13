@@ -11,9 +11,12 @@
         <li class="mr-8 text-gray-600 hover:text-purple-500 cursor-pointer">
           Rover photos
         </li>
-        <li class="text-gray-600 hover:text-purple-500 cursor-pointer">
+        <NuxtLink
+          to="/weather"
+          class="text-gray-600 hover:text-purple-500 cursor-pointer"
+        >
           Mars weather
-        </li>
+        </NuxtLink>
       </ul>
     </nav>
   </div>

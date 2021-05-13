@@ -1,7 +1,9 @@
 <template>
   <div>
     <AppNavbar />
-    <Nuxt />
+    <div class="max-w-6xl mx-auto px-8 pt-16">
+      <Nuxt />
+    </div>
   </div>
 </template>
 
