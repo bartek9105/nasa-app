@@ -5,11 +5,15 @@
     <h1 class="text-purple-500 font-bold text-xl">Nasa App</h1>
     <nav>
       <ul class="flex">
-        <li class="mr-8 hover:text-purple-500 cursor-pointer">
+        <li class="mr-8 text-gray-600 hover:text-purple-500 cursor-pointer">
           Astronomy picture of the day
         </li>
-        <li class="mr-8 hover:text-purple-500 cursor-pointer">Rover photos</li>
-        <li class="hover:text-purple-500 cursor-pointer">Mars weather</li>
+        <li class="mr-8 text-gray-600 hover:text-purple-500 cursor-pointer">
+          Rover photos
+        </li>
+        <li class="text-gray-600 hover:text-purple-500 cursor-pointer">
+          Mars weather
+        </li>
       </ul>
     </nav>
   </div>

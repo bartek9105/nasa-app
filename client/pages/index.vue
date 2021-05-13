@@ -1,7 +1,22 @@
 <template>
-  <div>App</div>
+  <div>{{ weather }}</div>
 </template>
 
 <script>
-export default {}
+import { mapActions, mapGetters } from 'vuex'
+export default {
+  computed: {
+    ...mapGetters({
+      weather: 'weather/weather',
+    }),
+  },
+  mounted() {
+    this.fetchWeatherData()
+  },
+  methods: {
+    ...mapActions({
+      fetchWeatherData: 'weather/fetchWeatherData',
+    }),
+  },
+}
 </script>

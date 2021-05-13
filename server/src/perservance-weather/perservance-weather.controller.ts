@@ -9,7 +9,7 @@ export class PerservanceWeatherController {
   ) {}
 
   @Get()
-  getPerservanceWeathers(): Promise<PerservanceWeather[]> {
-    return this.perservanceWeatherService.getPerservanceWeathers();
+  async getPerservanceWeathers(): Promise<PerservanceWeather[]> {
+    return await this.perservanceWeatherService.getPerservanceWeathers();
   }
 }
