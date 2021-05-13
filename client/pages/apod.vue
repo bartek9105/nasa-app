@@ -1,14 +1,14 @@
 <template>
-  <Apod :apod="apod" />
+  <ApodList :apod="apod" />
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import Apod from '@/components/Apod.vue'
+import ApodList from '@/components/Apod/ApodList.vue'
 
 export default {
   components: {
-    Apod,
+    ApodList,
   },
   computed: {
     ...mapGetters({

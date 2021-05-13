@@ -17,6 +17,6 @@ export const mutations = {
 export const actions = {
   async fetchApodData({ commit }) {
     const apodData = await this.$axios.$get('/apod')
-    commit('SET_APOD', apodData[0])
+    commit('SET_APOD', apodData)
   },
 }
