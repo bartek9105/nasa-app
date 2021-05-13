@@ -5,9 +5,12 @@
     <h1 class="text-purple-500 font-bold text-xl">Nasa App</h1>
     <nav>
       <ul class="flex">
-        <li class="mr-8 text-gray-600 hover:text-purple-500 cursor-pointer">
+        <NuxtLink
+          to="/apod"
+          class="mr-8 text-gray-600 hover:text-purple-500 cursor-pointer"
+        >
           Astronomy picture of the day
-        </li>
+        </NuxtLink>
         <li class="mr-8 text-gray-600 hover:text-purple-500 cursor-pointer">
           Rover photos
         </li>

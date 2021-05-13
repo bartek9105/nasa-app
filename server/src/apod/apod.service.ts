@@ -13,7 +13,7 @@ export class ApodService {
     @InjectModel('Apod') private readonly apodModel: Model<Apod>,
   ) {}
 
-  @Cron('59 23 * * *')
+  @Cron('05 13 * * *')
   async fetchApod(): Promise<Apod> {
     const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_API_KEY}`;
     const response = await this.httpService.get(apiUrl).toPromise();
