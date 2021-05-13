@@ -3,15 +3,15 @@
     class="
       flex
       justify-between
-      px-16
-      py-8
+      items-center
+      p-8
       border-2 border-gray-100
       shadow-sm
       bg-white
     "
   >
     <h1 class="text-purple-500 font-bold text-xl">Nasa App</h1>
-    <nav>
+    <nav class="hidden md:block">
       <ul class="flex">
         <NuxtLink
           to="/apod"
@@ -30,12 +30,18 @@
         </NuxtLink>
       </ul>
     </nav>
+    <MobileMenuBtn class="md:hidden" />
   </div>
 </template>
 
 <script>
+import MobileMenuBtn from '@/components/MobileMenuBtn.vue'
+
 export default {
   name: 'AppNavbar',
+  components: {
+    MobileMenuBtn,
+  },
 }
 </script>
 
