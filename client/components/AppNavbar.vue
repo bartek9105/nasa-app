@@ -1,6 +1,14 @@
 <template>
   <div
-    class="flex justify-between px-16 py-8 border-2 border-gray-100 shadow-sm"
+    class="
+      flex
+      justify-between
+      px-16
+      py-8
+      border-2 border-gray-100
+      shadow-sm
+      bg-white
+    "
   >
     <h1 class="text-purple-500 font-bold text-xl">Nasa App</h1>
     <nav>

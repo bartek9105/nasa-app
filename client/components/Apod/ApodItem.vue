@@ -1,5 +1,5 @@
 <template>
-  <div class="text-gray-700 mb-24">
+  <div class="text-gray-700 mb-24 bg-white shadow-sm rounded-md p-8">
     <h2 class="mb-6 font-bold text-lg">{{ apod.title }}</h2>
     <img
       :src="apod.url"
