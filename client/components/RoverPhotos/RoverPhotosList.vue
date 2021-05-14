@@ -1,9 +1,10 @@
 <template>
-  <div class="grid grid-cols-3 gap-4">
+  <div class="md:grid md:grid-cols-3 md:gap-4">
     <RoverPhotosItem
       v-for="photo in roverPhotos"
       :key="photo._id"
       :photo="photo"
+      class="mb-8 md:mb-0"
     />
   </div>
 </template>

@@ -15,8 +15,10 @@ export const mutations = {
 }
 
 export const actions = {
-  async fetchRoverPhotosData({ commit }) {
-    const roverPhotosData = await this.$axios.$get('/rover-photos')
+  async fetchRoverPhotosData({ commit }, queries) {
+    const roverPhotosData = await this.$axios.$get('/rover-photos', {
+      params: queries,
+    })
     commit('SET_ROVER_PHOTOS', roverPhotosData)
   },
 }

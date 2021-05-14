@@ -1,5 +1,5 @@
 <template>
-  <div class="text-gray-700 shadow-sm">
+  <div class="text-gray-600 shadow-sm">
     <img :src="photo.img_src" alt="mars-photo" class="rounded-md" />
     <div class="bg-white px-8 py-6 rounded-md">
       <h2 class="font-bold">Camera: {{ photo.camera.name }}</h2>
