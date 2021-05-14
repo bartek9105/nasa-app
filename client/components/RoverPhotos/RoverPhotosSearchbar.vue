@@ -9,7 +9,13 @@
           name="camera"
           class="px-4 py-2 shadow-sm border-2 border-gray-200"
         >
-          <option value="FHAZ">FHAZ</option>
+          <option
+            v-for="(camera, index) in cameras"
+            :key="index"
+            :value="camera"
+          >
+            {{ camera }}
+          </option>
           <option value="CHEMCAM">CHEMCAM</option>
           <option value="MAHLI">MAHLI</option>
         </select>
@@ -22,9 +28,9 @@
           name="camera"
           class="px-4 py-2 shadow-sm border-1 border-2 border-gray-200"
         >
-          <option value="Curiosity">Curiosity</option>
-          <option value="Opportunity">Opportunity</option>
-          <option value="Spirit">Spirit</option>
+          <option v-for="(rover, index) in rovers" :key="index" :value="rover">
+            {{ rover }}
+          </option>
         </select>
       </div>
       <div class="flex flex-col mb-4 md:mb-0">
@@ -53,6 +59,18 @@ export default {
         rover: 'Curiosity',
         sortBy: 'earth_date:asc',
       },
+      rovers: ['Curiosity', 'Opportunity', 'Spirit'],
+      cameras: [
+        'FHAZ',
+        'RHAZ',
+        'MAST',
+        'CHEMCAM',
+        'MAHLI',
+        'MARDI',
+        'NAVCAM',
+        'PANCAM',
+        'MINITES',
+      ],
     }
   },
   watch: {
