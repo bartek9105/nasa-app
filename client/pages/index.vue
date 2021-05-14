@@ -1,22 +1,9 @@
 <template>
-  <div>{{ weather }}</div>
+  <div></div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
 export default {
-  computed: {
-    ...mapGetters({
-      weather: 'weather/weather',
-    }),
-  },
-  mounted() {
-    this.fetchWeatherData()
-  },
-  methods: {
-    ...mapActions({
-      fetchWeatherData: 'weather/fetchWeatherData',
-    }),
-  },
+  middleware: 'redirect',
 }
 </script>
