@@ -1,7 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
 import { PerservanceWeather } from './perservance-weather.interface';
 import { PerservanceWeatherService } from './perservance-weather.service';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Perservance weather data')
 @Controller('perservance-weather')
 export class PerservanceWeatherController {
   constructor(
