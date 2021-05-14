@@ -19,9 +19,12 @@
         >
           Astronomy picture of the day
         </NuxtLink>
-        <li class="mr-8 text-gray-600 hover:text-purple-500 cursor-pointer">
-          Rover photos
-        </li>
+        <NuxtLink
+          to="/rover-photos"
+          class="mr-8 text-gray-600 hover:text-purple-500 cursor-pointer"
+        >
+          Rovers photos
+        </NuxtLink>
         <NuxtLink
           to="/weather"
           class="text-gray-600 hover:text-purple-500 cursor-pointer"

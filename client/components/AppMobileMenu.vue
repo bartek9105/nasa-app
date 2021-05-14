@@ -13,7 +13,7 @@
           class="text-gray-600 mb-12 text-xl font-bold"
           @click="closeMobileMenu"
         >
-          Rover photos
+          <NuxtLink to="/rover-photos"> Rover photos </NuxtLink>
         </li>
         <li
           class="text-gray-600 mb-12 text-xl font-bold"
