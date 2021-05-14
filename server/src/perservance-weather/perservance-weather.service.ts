@@ -18,31 +18,50 @@ export class PerservanceWeatherService {
   async fetchPerservanceWeather(): Promise<PerservanceWeather[]> {
     const apiUrl =
       'https://mars.nasa.gov/rss/api/?feed=weather&category=mars2020&feedtype=json';
-    const response = await this.httpService.get(apiUrl).toPromise();
 
-    const lastSolWeatherData =
-      response.data.sols[response.data.sols.length - 1];
+    try {
+      const response = await this.httpService.get(apiUrl).toPromise();
 
-    await this.deletePerservanceWeather();
-    await this.savePerservanceWeather(lastSolWeatherData);
+      const lastSolWeatherData =
+        response.data.sols[response.data.sols.length - 1];
 
-    this.logger.log('Fetched and saved new data');
+      await this.deletePerservanceWeather();
+      await this.savePerservanceWeather(lastSolWeatherData);
 
-    return lastSolWeatherData;
+      this.logger.log('Fetched and saved new data');
+
+      return lastSolWeatherData;
+    } catch (error) {
+      throw error;
+    }
   }
 
   async savePerservanceWeather(
     perservanceWeatherDto: PerservanceWeather,
   ): Promise<PerservanceWeather> {
-    const newWeather = new this.perservanceWeatherModel(perservanceWeatherDto);
-    return await newWeather.save();
+    try {
+      const newWeather = new this.perservanceWeatherModel(
+        perservanceWeatherDto,
+      );
+      return await newWeather.save();
+    } catch (error) {
+      throw error;
+    }
   }
 
   async deletePerservanceWeather() {
-    await this.perservanceWeatherModel.deleteMany({});
+    try {
+      await this.perservanceWeatherModel.deleteMany({});
+    } catch (error) {
+      throw error;
+    }
   }
 
   async getPerservanceWeathers(): Promise<PerservanceWeather[]> {
-    return await this.perservanceWeatherModel.find();
+    try {
+      return await this.perservanceWeatherModel.find();
+    } catch (error) {
+      throw error;
+    }
   }
 }

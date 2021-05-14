@@ -9,6 +9,10 @@ export class ApodController {
 
   @Get()
   async getApod() {
-    return await this.apodService.getApod();
+    try {
+      return await this.apodService.getApod();
+    } catch (error) {
+      throw error;
+    }
   }
 }

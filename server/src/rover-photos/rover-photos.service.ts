@@ -25,23 +25,31 @@ export class RoverPhotosService {
       (rover) =>
         `${baseUrl}/${rover}/photos?earth_date=${currentDate}&api_key=${process.env.NASA_API_KEY}`,
     );
-    const roverPhotosData = await Promise.all(
-      urls.map((url) => this.httpService.get(url).toPromise()),
-    );
-    const photosArr = roverPhotosData.map((el) => el.data.photos);
-    const roverPhotos = <RoverPhotos>{
-      photos: [].concat(...photosArr),
-    };
+    try {
+      const roverPhotosData = await Promise.all(
+        urls.map((url) => this.httpService.get(url).toPromise()),
+      );
+      const photosArr = roverPhotosData.map((el) => el.data.photos);
+      const roverPhotos = <RoverPhotos>{
+        photos: [].concat(...photosArr),
+      };
 
-    this.saveRoversPhotos(roverPhotos);
+      this.saveRoversPhotos(roverPhotos);
 
-    this.logger.log('Fetched and saved new data');
-    return roverPhotos;
+      this.logger.log('Fetched and saved new data');
+      return roverPhotos;
+    } catch (error) {
+      throw error;
+    }
   }
 
   async saveRoversPhotos(roverPhotosDto: RoverPhotos): Promise<RoverPhotos> {
-    const roversPhotos = new this.roverPhotosModel(roverPhotosDto);
-    return await roversPhotos.save();
+    try {
+      const roversPhotos = new this.roverPhotosModel(roverPhotosDto);
+      return await roversPhotos.save();
+    } catch (error) {
+      throw error;
+    }
   }
 
   async getRoversPhotos({
@@ -78,6 +86,10 @@ export class RoverPhotosService {
         $sort: { 'photos.earth_date': sortQuery },
       },
     ];
-    return this.roverPhotosModel.aggregate(query).exec();
+    try {
+      return await this.roverPhotosModel.aggregate(query).exec();
+    } catch (error) {
+      throw error;
+    }
   }
 }

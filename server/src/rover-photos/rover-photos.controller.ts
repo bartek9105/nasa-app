@@ -10,6 +10,10 @@ export class RoverPhotosController {
 
   @Get()
   async getRoversPhotos(@Query() queries: RoverPhotosQueries) {
-    return await this.roverPhotosService.getRoversPhotos(queries);
+    try {
+      return await this.roverPhotosService.getRoversPhotos(queries);
+    } catch (error) {
+      throw error;
+    }
   }
 }

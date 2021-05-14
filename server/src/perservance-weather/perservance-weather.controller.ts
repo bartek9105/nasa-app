@@ -12,6 +12,10 @@ export class PerservanceWeatherController {
 
   @Get()
   async getPerservanceWeathers(): Promise<PerservanceWeather[]> {
-    return await this.perservanceWeatherService.getPerservanceWeathers();
+    try {
+      return await this.perservanceWeatherService.getPerservanceWeathers();
+    } catch (error) {
+      throw error;
+    }
   }
 }
