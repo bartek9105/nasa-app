@@ -1,6 +1,7 @@
 <template>
   <div>
-    <AppNavbar />
+    <AppNavbar @openMobileMenu="mobileMenu = true" />
+    <AppMobileMenu v-if="mobileMenu" @closeMobileMenu="mobileMenu = false" />
     <div class="max-w-6xl mx-auto px-8 pt-16">
       <Nuxt />
     </div>
@@ -9,10 +10,17 @@
 
 <script>
 import AppNavbar from '@/components/AppNavbar.vue'
+import AppMobileMenu from '@/components/AppMobileMenu.vue'
 
 export default {
   components: {
     AppNavbar,
+    AppMobileMenu,
+  },
+  data() {
+    return {
+      mobileMenu: false,
+    }
   },
 }
 </script>

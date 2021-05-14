@@ -30,7 +30,7 @@
         </NuxtLink>
       </ul>
     </nav>
-    <MobileMenuBtn class="md:hidden" />
+    <MobileMenuBtn class="md:hidden" @click.native="openMobileMenu" />
   </div>
 </template>
 
@@ -41,6 +41,12 @@ export default {
   name: 'AppNavbar',
   components: {
     MobileMenuBtn,
+  },
+  methods: {
+    openMobileMenu() {
+      document.body.style.overflow = 'hidden'
+      this.$emit('openMobileMenu')
+    },
   },
 }
 </script>
