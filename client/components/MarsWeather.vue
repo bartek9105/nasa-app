@@ -1,7 +1,7 @@
 <template>
   <div class="text-gray-600">
     <h2 class="mb-12 font-bold text-2xl text-gray-700 text-purple-500">
-      Today's Mars weather
+      Most recent Mars weather data
     </h2>
     <div class="bg-white shadow-sm rounded-md p-8">
       <p class="mb-4">
