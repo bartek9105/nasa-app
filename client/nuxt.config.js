@@ -1,10 +1,12 @@
+const env = process.env.NODE_ENV
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'client',
+    title: 'Nasa App',
     htmlAttrs: {
       lang: 'en',
     },
@@ -25,7 +27,7 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  // Modules for dev and build (recommended): https://go.BASnuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
@@ -41,7 +43,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseUrl: 'http://localhost:3000',
+    baseUrl:
+      env === 'production' ? process.env.BASE_URL : 'http://localhost:3000',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
