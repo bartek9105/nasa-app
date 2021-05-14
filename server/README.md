@@ -26,6 +26,17 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Env variables
+
+Before you run this app create .env file in project's root folder and provide your variables. This app uses MongoDB cloud service.
+
+```
+DB_CONNECTION=mongodb+srv://<dbUser>:<password>@cluster0.8asui.mongodb.net/<dbName>?retryWrites=true&w=majority
+NASA_API_KEY=your_api_key
+```
+
+Get NASA API key here: https://api.nasa.gov/
+
 ## Installation
 
 ```bash
