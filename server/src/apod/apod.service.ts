@@ -15,7 +15,8 @@ export class ApodService {
 
   @Cron('59 23 * * *')
   async fetchApod(): Promise<Apod> {
-    const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_API_KEY}`;
+    const currentDate = new Date().toISOString().split('T')[0];
+    const apiUrl = `https://api.nasa.gov/planetary/apod?date=${currentDate}&api_key=${process.env.NASA_API_KEY}`;
     const response = await this.httpService.get(apiUrl).toPromise();
 
     this.saveApod(response.data);
@@ -30,6 +31,6 @@ export class ApodService {
   }
 
   async getApod(): Promise<Apod[]> {
-    return await this.apodModel.find();
+    return await this.apodModel.find().sort({ date: -1 });
   }
 }

@@ -23,7 +23,8 @@ export class PerservanceWeatherService {
     const lastSolWeatherData =
       response.data.sols[response.data.sols.length - 1];
 
-    this.savePerservanceWeather(lastSolWeatherData);
+    await this.deletePerservanceWeather();
+    await this.savePerservanceWeather(lastSolWeatherData);
 
     this.logger.log('Fetched and saved new data');
 
@@ -35,6 +36,10 @@ export class PerservanceWeatherService {
   ): Promise<PerservanceWeather> {
     const newWeather = new this.perservanceWeatherModel(perservanceWeatherDto);
     return await newWeather.save();
+  }
+
+  async deletePerservanceWeather() {
+    await this.perservanceWeatherModel.deleteMany({});
   }
 
   async getPerservanceWeathers(): Promise<PerservanceWeather[]> {

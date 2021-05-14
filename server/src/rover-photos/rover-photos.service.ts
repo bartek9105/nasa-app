@@ -18,8 +18,7 @@ export class RoverPhotosService {
 
   @Cron('59 23 * * *')
   async fetchRoversPhotos(): Promise<RoverPhotos> {
-    // const currentDate = new Date().toISOString().split('T')[0];
-    const currentDate = '2021-05-11';
+    const currentDate = new Date().toISOString().split('T')[0];
     const baseUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers';
     const rovers = ['curiosity', 'opportunity', 'spirit'];
     const urls = rovers.map(
