@@ -48,7 +48,20 @@ export class RoverPhotosService {
   async getRoversPhotos({
     camera,
     rover,
+    sortBy,
   }: RoverPhotosQueries): Promise<RoverPhotosResponse> {
+    let sortQuery = 1;
+    let sortQueryType;
+
+    if (sortBy) {
+      sortQueryType = sortBy.split(':')[1];
+    }
+    if (sortQueryType === 'asc') {
+      sortQuery = 1;
+    }
+    if (sortQueryType === 'desc') {
+      sortQuery = -1;
+    }
     const query = [
       {
         $unwind: '$photos',
@@ -61,6 +74,9 @@ export class RoverPhotosService {
       },
       {
         $group: { _id: '$_id', photos: { $push: '$photos' } },
+      },
+      {
+        $sort: { 'photos.earth_date': sortQuery },
       },
     ];
     return this.roverPhotosModel.aggregate(query).exec();
