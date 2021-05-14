@@ -29,4 +29,7 @@ export default {
 body {
   background-color: rgba(243, 244, 246);
 }
+.nuxt-link-exact-active {
+  color: #8b5cf6;
+}
 </style>
