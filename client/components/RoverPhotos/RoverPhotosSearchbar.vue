@@ -49,8 +49,8 @@ export default {
   data() {
     return {
       queries: {
-        camera: '',
-        rover: '',
+        camera: 'CHEMCAM',
+        rover: 'Curiosity',
         sortBy: 'earth_date:asc',
       },
     }

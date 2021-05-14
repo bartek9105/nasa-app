@@ -16,7 +16,9 @@ export const mutations = {
 
 export const actions = {
   async fetchWeatherData({ commit }) {
+    commit('SET_IS_LOADING', true, { root: true })
     const weatherData = await this.$axios.$get('/perservance-weather')
+    commit('SET_IS_LOADING', false, { root: true })
     commit('SET_WEATHER', weatherData[0])
   },
 }

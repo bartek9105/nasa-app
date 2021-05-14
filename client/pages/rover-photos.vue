@@ -4,8 +4,16 @@
       Rover Photos
     </h1>
     <RoverPhotosSearchbar class="mb-8" @queries="queriesHandler" />
-    <div v-for="rover in roverPhotos" :key="rover._id">
-      <RoverPhotosList :rover-photos="rover.photos" />
+    <div v-if="loading" class="w-full text-center">
+      <LoadingSpinner />
+    </div>
+    <div v-if="!loading && roverPhotos.length === 0">
+      No data found for specified criteria
+    </div>
+    <div v-if="!loading && roverPhotos.length > 0">
+      <div v-for="rover in roverPhotos" :key="rover._id">
+        <RoverPhotosList :rover-photos="rover.photos" />
+      </div>
     </div>
   </div>
 </template>
@@ -24,6 +32,7 @@ export default {
   computed: {
     ...mapGetters({
       roverPhotos: 'rover-photos/roverPhotos',
+      loading: 'isLoading',
     }),
   },
   mounted() {

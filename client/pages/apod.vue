@@ -1,5 +1,10 @@
 <template>
-  <ApodList :apod="apod" />
+  <div>
+    <div v-if="loading" class="w-full text-center">
+      <LoadingSpinner />
+    </div>
+    <ApodList v-if="!loading && apod.length > 0" :apod="apod" />
+  </div>
 </template>
 
 <script>
@@ -13,6 +18,7 @@ export default {
   computed: {
     ...mapGetters({
       apod: 'apod/apod',
+      loading: 'isLoading',
     }),
   },
   mounted() {

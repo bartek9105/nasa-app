@@ -1,5 +1,10 @@
 <template>
-  <MarsWeather :weather="weather" />
+  <div>
+    <div v-if="loading" class="w-full text-center">
+      <LoadingSpinner />
+    </div>
+    <MarsWeather v-else :weather="weather" />
+  </div>
 </template>
 
 <script>
@@ -13,6 +18,7 @@ export default {
   computed: {
     ...mapGetters({
       weather: 'weather/weather',
+      loading: 'isLoading',
     }),
   },
   mounted() {
