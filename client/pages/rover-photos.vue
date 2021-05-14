@@ -29,6 +29,11 @@ export default {
     RoverPhotosList,
     RoverPhotosSearchbar,
   },
+  head() {
+    return {
+      title: 'Nasa App | Rover photos',
+    }
+  },
   computed: {
     ...mapGetters({
       roverPhotos: 'rover-photos/roverPhotos',

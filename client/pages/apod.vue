@@ -15,6 +15,11 @@ export default {
   components: {
     ApodList,
   },
+  head() {
+    return {
+      title: 'Nasa App | APOD',
+    }
+  },
   computed: {
     ...mapGetters({
       apod: 'apod/apod',

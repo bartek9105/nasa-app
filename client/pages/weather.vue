@@ -15,6 +15,11 @@ export default {
   components: {
     MarsWeather,
   },
+  head() {
+    return {
+      title: 'Nasa App | Weather',
+    }
+  },
   computed: {
     ...mapGetters({
       weather: 'weather/weather',
