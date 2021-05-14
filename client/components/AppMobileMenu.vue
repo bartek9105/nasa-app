@@ -1,7 +1,11 @@
 <template>
   <div class="w-screen h-screen bg-white absolute z-10 top-0 left-0 p-16">
     <nav class="flex flex-col items-end">
-      <x-icon size="2x" class="mb-8" @click="closeMobileMenu"></x-icon>
+      <x-icon
+        size="1.5x"
+        class="mb-8 cursor-pointer"
+        @click="closeMobileMenu"
+      ></x-icon>
       <ul class="flex flex-col text-right">
         <li
           class="text-gray-600 mb-12 text-xl font-bold"

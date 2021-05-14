@@ -2,7 +2,7 @@
   <div>
     <AppNavbar @openMobileMenu="mobileMenu = true" />
     <AppMobileMenu v-if="mobileMenu" @closeMobileMenu="mobileMenu = false" />
-    <div class="max-w-6xl mx-auto px-8 pt-16">
+    <div class="max-w-6xl mx-auto px-8 p-16">
       <Nuxt />
     </div>
   </div>

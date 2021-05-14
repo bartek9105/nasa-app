@@ -33,17 +33,21 @@
         </NuxtLink>
       </ul>
     </nav>
-    <MobileMenuBtn class="md:hidden" @click.native="openMobileMenu" />
+    <menu-icon
+      size="1.5x"
+      class="md:hidden cursor-pointer"
+      @click="openMobileMenu"
+    ></menu-icon>
   </div>
 </template>
 
 <script>
-import MobileMenuBtn from '@/components/MobileMenuBtn.vue'
+import { MenuIcon } from 'vue-feather-icons'
 
 export default {
   name: 'AppNavbar',
   components: {
-    MobileMenuBtn,
+    MenuIcon,
   },
   methods: {
     openMobileMenu() {
