@@ -13,7 +13,7 @@ export class ApodService {
     @InjectModel('Apod') private readonly apodModel: Model<Apod>,
   ) {}
 
-  @Cron('41 20 * * *')
+  @Cron('59 23 * * *')
   async fetchApod(): Promise<Apod> {
     const currentDate = new Date().toISOString().split('T')[0];
     const apiUrl = `https://api.nasa.gov/planetary/apod?date=${currentDate}&api_key=${process.env.NASA_API_KEY}`;
